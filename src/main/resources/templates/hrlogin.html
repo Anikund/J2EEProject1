@@ -6,6 +6,10 @@
     <title>HTLogin</title>
 </head>
 <body>
+    <div id="errors" th:if="${(param.error != null)}">
+        Username or password Error!
+    </div>
+
     <form th:action="@{/}" method="post" id="loginForm">
        <label for="username">Username: </label>
         <input name="username" type="text" id="username"/>
