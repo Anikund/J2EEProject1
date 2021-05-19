@@ -1,7 +1,7 @@
 package admin.service;
 
-import admin.domain.HR;
-import admin.repo.HRRepository;
+import admin.dao.domain.HR;
+import admin.dao.repo.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

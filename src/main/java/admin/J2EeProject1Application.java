@@ -1,7 +1,7 @@
 package admin;
 
-import admin.domain.HR;
-import admin.repo.HRRepository;
+import admin.dao.domain.HR;
+import admin.dao.repo.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

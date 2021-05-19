@@ -6,5 +6,7 @@ J2EE Project-1
 By Sha:
 - Done:
   * Login for HRs
+  * Create Employee
+  * Browse all employees
 - To do:
-  * 员工信息增加、管理
+  * Employee conditional query

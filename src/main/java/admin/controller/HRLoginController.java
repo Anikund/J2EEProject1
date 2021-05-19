@@ -12,11 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HRLoginController {
    @GetMapping
    public String showHRLoginForm(Model model){
+       log.info("Show login form");
        return "hrlogin";
    }
 
     @PostMapping
     public String processLogin() {
+        log.info("Process Login");
         return "test";
     }
 }

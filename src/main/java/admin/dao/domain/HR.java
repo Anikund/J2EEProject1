@@ -1,4 +1,4 @@
-package admin.domain;
+package admin.dao.domain;
 
 import lombok.AccessLevel;
 import lombok.Data;
