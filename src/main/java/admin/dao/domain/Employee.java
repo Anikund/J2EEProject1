@@ -48,6 +48,68 @@ public class Employee {
     @NotBlank(message = "Please input the company of this guy!")
     private String currentCompany;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public Boolean getOnTheJob() {
+        return isOnTheJob;
+    }
+
+    public String getCurrentCompany() {
+        return currentCompany;
+    }
 
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public void setOnTheJob(Boolean onTheJob) {
+        isOnTheJob = onTheJob;
+    }
+
+    public void setCurrentCompany(String currentCompany) {
+        this.currentCompany = currentCompany;
+    }
 }

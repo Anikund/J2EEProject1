@@ -10,3 +10,9 @@ By Sha:
   * Browse all employees
 - To do:
   * Employee conditional query
+
+By Li:
+- Done:
+  * Create Staffworkrec
+  * Register Staffworkrec
+  * Browse all staffworkrec

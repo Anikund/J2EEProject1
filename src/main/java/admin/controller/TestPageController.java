@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestPageController {
     @GetMapping
     public String showTest(){
-        log.info("Transfer Station:");
+        log.info("Transfer Station1:");
         return "test";
     }
-    @PostMapping
+   @PostMapping
     public String showTestPage(){
-        log.info("Transfer Station:");
+        log.info("Transfer Station2:");
         return "test";
     }
 }
