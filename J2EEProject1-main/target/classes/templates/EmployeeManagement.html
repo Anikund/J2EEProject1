@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Management of Employees</title>
+</head>
+<body>
+    <h1>All employees are listed below:</h1>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Name</td> <td>Gender</td> <td>Tel</td> <td>Age</td>
+                <td>Department</td> <td>On The Job?</td> <td>currentCompany</td>
+                <td>Operations</td>
+            </tr>
+            <tr  th:each="employee:${allEmployees}">
+                    <td th:text="${employee.name}">name</td>
+                    <td th:text="${employee.gender}">gender</td>
+                    <td th:text="${employee.tel}">tel</td>
+                    <td th:text="${employee.age}">age</td>
+                    <td th:text="${employee.department}">department</td>
+                    <td th:text="${employee.isOnTheJob}">T/F</td>
+                    <td th:text="${employee.currentCompany}">currentCompany</td>
+                    <td>
+                        <table border="3">
+                            <tr><td><a th:href="@{/test}">Update</a></td></tr>
+                            <tr><td><a th:href="@{/test}">Delete</a></td></tr>
+                            <tr><td><a th:href="@{/test}">Hire</a></td></tr>
+                        </table>
+                    </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <a th:href="@{/test}">Back to transfer station.</a>
+</body>
+</html>

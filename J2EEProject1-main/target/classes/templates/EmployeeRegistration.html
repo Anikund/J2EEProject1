@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register Employee</title>
+</head>
+<body>
+    <h2>Register your Employee:</h2>
+    <br/><br/>
+    <form th:action="@{/employee/register}" th:object="${employee}" method="post">
+        <div class="nameInput">
+            Name:<input type="text" th:field="*{name}"  name="name"/><br/>
+            <span class="validation" th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}">Error!</span>
+        </div>
+
+        <div class="genderRadioBoxes">
+            Gender:
+            <input type="radio" name="gender" id="Female" value="Female"/>
+            <label for="Female">Female</label>
+            <input type="radio" name="gender" id="Male" value="Male"/>
+            <label for="Male">Male</label>
+        </div>
+
+        <div class="telInput">
+            Tel:<input type="tel" name="tel" th:field="*{tel}"/>
+            <br/>
+            <span class="validation" th:if="${#fields.hasErrors('tel')}"
+                  th:errors="*{tel}">Error!</span>
+        </div>
+
+        <div class="ageInput">
+            Age:<input type="text" name="age" th:field="*{age}"/>
+            <br/>
+            <span class="validation" th:if="${#fields.hasErrors('age')}"
+                  th:errors="*{age}">Age error!</span>
+        </div>
+
+        <div class="departmentInput">
+            Department:<input type="text" name="department" th:field="*{department}"/>
+            <br/>
+            <span class="validation" th:if="${#fields.hasErrors('department')}"
+                  th:errors="*{department}">Error!</span>
+        </div>
+
+        <div class="currentCompany">
+            Company:<input type="text" name="currentCompany" th:field="*{currentCompany}"/>
+            <br/>
+            <span class="validation" th:if="${#fields.hasErrors('currentCompany')}"
+                  th:errors="*{currentCompany}">Error!</span>
+        </div>
+
+
+        <input type="submit" value="Confirm"/>
+    </form>
+</body>
+</html>
