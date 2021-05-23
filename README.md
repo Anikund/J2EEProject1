@@ -11,3 +11,9 @@ By Sha:
     * But creating employees with HR's company is not available since, well, no complete HR implementation untill now.  
 - To do:
   * TBD
+  
+By Li:
+- Done:
+  * Create Staffworkrec
+  * Register Staffworkrec
+  * Browse all staffworkrec
