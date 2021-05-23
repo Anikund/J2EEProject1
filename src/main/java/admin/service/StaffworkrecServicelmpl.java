@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 @Slf4j
@@ -25,7 +26,7 @@ public class StaffworkrecServicelmpl implements StaffworkrecService {
 
     @Override
     public List<Staffworkrec> findByEmployeeid(String employeeid) {
-        return (List<Staffworkrec>) staffworkrecRepo.findByEmployeeid(employeeid);
+        return  Arrays.asList(staffworkrecRepo.findByEmployeeid(employeeid));
     }
 
     @Override
