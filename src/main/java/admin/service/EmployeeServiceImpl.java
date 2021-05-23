@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 @Slf4j
 @Service
@@ -66,6 +67,33 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<Employee> findAll() {
         return employeeRepo.findAll();
+    }
+
+    @Override
+    public List<Employee> findByConditions(String[] conditions, String[] values) {
+        List<Employee> result = this.findAll();
+        int i = 0;//index for updateValues
+        for (String cond : conditions) {
+            switch (cond) {
+                case "name":
+                    result.retainAll(this.findByName(values[i]));i++;break;
+                case "gender":
+                    result.retainAll(this.findByGender(values[i]));i++;break;
+                case "tel":
+                    return Arrays.asList(this.findByTel(values[i]));
+                case "age":
+                    result.retainAll(this.findByAge(Integer.parseInt(values[i])));i++;break;
+                case "department":
+                    result.retainAll(this.findByDepartment(values[i]));i++;break;
+                case "isOnTheJob":
+                    result.retainAll(this.findByIsOnTheJob(Boolean.parseBoolean(values[i])));i++;break;
+                case "currentCompany":
+                    result.retainAll(this.findByCurrentCompany(values[i]));i++;break;
+                case "id":
+                    return Arrays.asList(this.findById(Long.parseLong(values[i])));
+            }
+        }
+        return result;
     }
 
     @Override
