@@ -13,7 +13,7 @@ import java.util.Collection;
 
 @Entity
 @Data
-@NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
+@NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
 public class HR implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +24,7 @@ public class HR implements UserDetails {
     private String password;
     @Column(nullable = false, unique = true)
     private String username;
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
@@ -48,6 +49,5 @@ public class HR implements UserDetails {
     public boolean isEnabled(){
         return true;
     }
-
 
 }

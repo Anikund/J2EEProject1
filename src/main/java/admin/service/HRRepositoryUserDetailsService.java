@@ -1,5 +1,7 @@
 package admin.service;
 
+import admin.dao.domain.Admin;
+import admin.dao.domain.Employee;
 import admin.dao.domain.HR;
 import admin.dao.repo.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +31,17 @@ public class HRRepositoryUserDetailsService implements UserDetailsService {
     }
     public List<HR> findAll() {
         return hrRepository.findAll();
+    }
+
+
+    public Boolean addhr(HR hr) {
+        hrRepository.save(hr);
+        return Boolean.TRUE;
+    }
+
+
+    public Boolean delHR(HR hr) {
+        hrRepository.delete(hr);
+        return Boolean.FALSE;
     }
 }

@@ -17,3 +17,11 @@ By Li:
   * Create Staffworkrec
   * Register Staffworkrec
   * Browse all staffworkrec
+
+By Wang:
+- Done:
+  * Show all hr
+  * register new hr
+  * create new role admin & admin mainpage
+- todo:
+  * admin login(together with hr login)

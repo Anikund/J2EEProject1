@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface HRRepository extends CrudRepository<HR, Long> {
     HR findByUsername(String username);
-
     List<HR> findAll();
 }
