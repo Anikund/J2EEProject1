@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HRManagement</title>
+    </head>
+    <body>
+    <h1>All hrs are listed below:</h1>
+    <div>
+        <table border="1">
+            <tr>
+                <td>name</td> <td>username</td>
+            </tr>
+            <tr  th:each="hr:${allhrs}">
+                <td th:text="${hr.username}">name</td>
+                <td th:text="${hr.name}">gender</td>
+                <td>
+                    <table border="2">
+                        <tr><td><a th:href="@{/test}">Update</a></td></tr>
+                        <tr><td><a th:href="@{/test}">Delete</a></td></tr>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+    <a th:href="@{/test}">Back to transfer station.</a>
+    </body>
+</html>
