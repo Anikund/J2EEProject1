@@ -10,7 +10,7 @@ By Sha:
   * CRUD of employees, conditional query of employees
     * But creating employees with HR's company is not available since, well, no complete HR implementation untill now.  
 - To do:
-  * TBD
+  * Authotivation
   
 By Li:
 - Done:
