@@ -24,8 +24,6 @@
                     <td th:text="${employee.currentCompany}">currentCompany</td>
                     <td>
                         <table border="3">
-                            <tr><td><a th:href="@{/test}">Update</a></td></tr>
-                            <tr><td><a th:href="@{/test}">Delete</a></td></tr>
                             <tr><td>
                                 <form th:action="@{/employee/experience}"  method="post" th:object="${employee}">
                                 <input type="hidden" th:value="${employee.id}" th:name="selectedId">

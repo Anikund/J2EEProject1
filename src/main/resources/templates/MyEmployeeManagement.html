@@ -28,7 +28,7 @@
                 <td>
                     <table border="3">
                         <tr><td>
-                            <form th:action="@{/employee/manage/mine/update}"  method="post" th:object="${employee}">
+                            <form th:action="@{/employee/manage/mine/updating}"  method="post" th:object="${employee}">
                                 <input type="hidden" th:value="${employee.id}" th:name="selectedId">
                                 <input type="submit" value="Update">
                             </form>

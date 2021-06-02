@@ -92,7 +92,7 @@ public class EmployeeController {
     @PostMapping("/manage/mine/delete")
     public String deleteSelectedEmployee(@ModelAttribute("selectedId") String selectedId
                                          , Model model, @AuthenticationPrincipal HR hr){
-        log.info("Id is " + selectedId);
+        log.info("Id is " + selectedId+", to be deleted");
         Employee selectedEmployee = employeeService.findById((long) Integer.parseInt(selectedId));
         employeeService.delEmployee(selectedEmployee, hr.getId(), hr.getName(), hr.getCompany());
 
@@ -102,6 +102,32 @@ public class EmployeeController {
         model.addAttribute("allEmployees", employees);
 
         return "MyEmployeeManagement";
+    }
+
+    @PostMapping("/manage/mine/updating")
+    public String updateSelectedEmployee(@ModelAttribute("selectedId") String selectedId, Model model){
+        log.info("update starts");
+        Employee selectedEmployee = employeeService.findById((long) Integer.parseInt(selectedId));
+        model.addAttribute("employee", selectedEmployee);
+        return "UpdateEmployee";
+    }
+
+    @PostMapping("/update")
+    public String updateEmployee(@Valid @ModelAttribute("employee") Employee employee,
+                                 BindingResult bindingResult,
+                                 Model model){
+        if (bindingResult.hasErrors()) {//back to registration form when having errors
+            model.addAttribute("employee", employee);
+            log.info("Error in the form");
+            return "UpdateEmployee";
+        }
+        Employee updatedEmployee = employeeService.findById(employee.getId());
+        employeeService.updateEmployeeAge(updatedEmployee, employee.getAge());
+        employeeService.updateEmployeeName(updatedEmployee, employee.getName());
+        employeeService.updateEmployeeTel(updatedEmployee, employee.getTel());
+        employeeService.updateEmployeeGender(updatedEmployee, employee.getGender());
+        employeeService.updateEmployeeDepartment(updatedEmployee, employee.getDepartment());
+        return "test";
     }
 
     @PostMapping("/experience")
