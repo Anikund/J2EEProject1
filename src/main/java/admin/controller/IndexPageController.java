@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @Controller
-@RequestMapping("/test")
-public class TestPageController {
+@RequestMapping("/index")
+public class IndexPageController {
     @GetMapping
     public String showTest(){
         log.info("Transfer Station1:");
-        return "test";
+        return "index";
     }
-   @PostMapping
+    @PostMapping
     public String showTestPage(){
         log.info("Transfer Station2:");
-        return "test";
+        return "index";
     }
 
 

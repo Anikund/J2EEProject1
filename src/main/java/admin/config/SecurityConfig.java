@@ -36,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
         .and().formLogin().loginPage("/").defaultSuccessUrl("/test",true)
         .and().logout().logoutSuccessUrl("/");
+
+        http.headers().frameOptions().disable();    //允许分页
     }
 
     @Bean

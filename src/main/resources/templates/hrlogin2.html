@@ -14,6 +14,7 @@
     <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
     <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    +
     <style>
         html, body {width: 100%;height: 100%;overflow: hidden}
         body {background: #1E9FFF;}
@@ -78,7 +79,7 @@
 
         // 登录过期的时候，跳出ifram框架
         if (top.location != self.location) top.location = self.location;
-        if(data.field.username == '') layer.msg('用户名不能为空');
+
         // 粒子线条背景
         $(document).ready(function(){
             $('.layui-container').particleground({
