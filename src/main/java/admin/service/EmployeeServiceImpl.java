@@ -111,6 +111,14 @@ public class EmployeeServiceImpl implements EmployeeService {
         return Boolean.TRUE;
     }
 
+    @Override
+    public Boolean hireEmployee(Employee employee, HR hr){
+        employee.setCurrentCompany(hr.getCompany());
+        employee.setIsOnTheJob(Boolean.TRUE);
+        employee.setInDate(new java.sql.Date(new java.util.Date().getTime()));
+        employeeRepo.save(employee);
+        return Boolean.TRUE;
+    }
 
     @Override
     public Boolean delEmployee(Employee employee, Long hrId, String hrName, String company) {
@@ -127,6 +135,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         staffWorkRecRepo.save(rec);
         return Boolean.TRUE;
     }
+
+
 
     @Override
     public Boolean updateEmployeeName(Employee employee, String newName) {

@@ -79,6 +79,7 @@ public class EmployeeController {
     @GetMapping("/manage")
     public String showEmployeeManagement(Model model){
         model.addAttribute("allEmployees", employeeService.findAll());
+        model.addAttribute("selectedId", new String());
         log.info("Get Request to /employee/manage");
 //        return "EmployeeManagement";
         return "new_template/ManageEmployees";
@@ -151,6 +152,12 @@ public class EmployeeController {
         return "WorkRecords";
     }
 
-
+    @PostMapping("/hire")
+    public String hireSelectedEmployee(@ModelAttribute("selectedId")String selectedId,
+                                       @AuthenticationPrincipal HR hr){
+        Employee selectedEmployee = employeeService.findById((long) Integer.parseInt(selectedId));
+        employeeService.hireEmployee(selectedEmployee, hr);
+        return "redirect:/employee/manage/mine";
+    }
 
 }

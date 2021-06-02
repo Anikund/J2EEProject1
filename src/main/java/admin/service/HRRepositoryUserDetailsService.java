@@ -3,6 +3,7 @@ package admin.service;
 import admin.dao.domain.Admin;
 import admin.dao.domain.Employee;
 import admin.dao.domain.HR;
+import admin.dao.repo.AdminRepository;
 import admin.dao.repo.HRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +17,9 @@ import java.util.List;
 public class HRRepositoryUserDetailsService implements UserDetailsService {
 
     private HRRepository hrRepository;
+
+    @Autowired
+    private AdminRepository adminRepository;
     @Autowired
     public HRRepositoryUserDetailsService(HRRepository hrRepository){
         this.hrRepository = hrRepository;
@@ -23,9 +27,13 @@ public class HRRepositoryUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         HR hr = hrRepository.findByUsername(s);
+        Admin admin = adminRepository.findByUsername(s);
         if(hr != null){
             return hr;
-        }else{
+        }else if(admin != null){
+            return admin;
+        }
+        else{
             throw new UsernameNotFoundException("Username" + s + " not found!");
         }
     }

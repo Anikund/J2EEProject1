@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
-
+@Data
 @Entity
 @NoArgsConstructor(force = true, access = AccessLevel.PROTECTED)
 public class Admin implements UserDetails {
@@ -61,7 +61,7 @@ public class Admin implements UserDetails {
 
         return Arrays.asList(new SimpleGrantedAuthority("Admin_USER"), new SimpleGrantedAuthority("HR_USER"));
     }
-
+/*
     @Override
     public String getPassword() {
         return null;
@@ -71,7 +71,7 @@ public class Admin implements UserDetails {
     public String getUsername() {
         return null;
     }
-
+*/
     @Override
     public boolean isAccountNonExpired(){
         return true;

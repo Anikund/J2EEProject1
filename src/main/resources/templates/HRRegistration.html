@@ -17,7 +17,13 @@
             username:<input type="text" th:field="*{username}"  name="username"/><br/>
         </div>
         <div class="companyInput">
-            Company:<input type="text" th:field="*{company}" name="company"/><br/>
+            Company:
+            <select th:field="*{company}"/>
+                <option th:each="corp : ${allCorps}"
+                        th:value="${corp}"
+                        th:text="${corp}"
+                >Corporation Name</option>
+            <br/>
         </div>
 
         <div>

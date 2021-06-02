@@ -31,6 +31,9 @@ public class HR implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
+        if(username.equals("admin")){
+            return Arrays.asList(new SimpleGrantedAuthority("Admin_USER"), new SimpleGrantedAuthority("HR_USER"));
+        }
         return Arrays.asList(new SimpleGrantedAuthority("HR_USER"));
     }
     @Override
