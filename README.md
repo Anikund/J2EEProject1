@@ -5,12 +5,15 @@ J2EE Project-1
 
 By Sha:
 - Done:
-  * Login for HRs
-  * Create Employee
-  * CRUD of employees, conditional query of employees
-    * But creating employees with HR's company is not available since, well, no complete HR implementation untill now.  
+  * Spring Security配置
+  * 角色权限验证
+  * 创建HR实体
+  * 创建Employee实体及其增删改查
+  * 对雇员的条件查询
+  * 实现解雇、雇用等逻辑的功能
+  * 用Thymeleaf引擎渲染初步编写HTML页面，实现浏览、管理等基本功能
 - To do:
-  * Authotivation
+  * TBD
   
 By Li:
 - Done:
