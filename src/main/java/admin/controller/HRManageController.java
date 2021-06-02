@@ -41,7 +41,8 @@ public class HRManageController {
     public String showHrManagement(Model model){
         model.addAttribute("allhrs", hrservice.findAll());
         log.info("Get Request to /hr/manage");
-        return "HRManagement";
+//        return "HRManagement";
+        return "new_template/Managehr";
     }
 
     @GetMapping("/register")

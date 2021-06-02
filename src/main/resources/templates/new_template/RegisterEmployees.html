@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>myface</title>
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/font/iconfont.css">
+    <script src="/js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="js/drag.js"></script>
+    <style>
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            padding: 0;
+        }
+
+        body {
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        h2{
+            margin: 5px auto;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        select{
+            height: 30px;
+        }
+
+        label{
+            margin-left: 5px;
+        }
+
+        td,th {
+            padding: 0;
+            height: 30px;
+        }
+        fieldset{
+            margin: 0 2%;
+        }
+        form {
+
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend><h2>员工注册</h2></legend>
+    <div style="height: 550px; display:flex;justify-content:center;" >
+        <form th:action="@{/employee/register}" th:object="${employee}" method="post">
+            <div class="nameInput">
+                Name:<input type="text" th:field="*{name}"  name="name"/><br/>
+                <span class="validation" th:if="${#fields.hasErrors('name')}"
+                      th:errors="*{name}">Error!</span>
+            </div>
+
+            <div class="genderRadioBoxes">
+                Gender:
+                <input type="radio" name="gender" id="Female" value="Female"/>
+                <label for="Female">Female</label>
+                <input type="radio" name="gender" id="Male" value="Male"/>
+                <label for="Male">Male</label>
+            </div>
+
+            <div class="telInput">
+                Tel:<input type="tel" name="tel" th:field="*{tel}"/>
+                <br/>
+                <span class="validation" th:if="${#fields.hasErrors('tel')}"
+                      th:errors="*{tel}">Error!</span>
+            </div>
+
+            <div class="ageInput">
+                Age:<input type="text" name="age" th:field="*{age}"/>
+                <br/>
+                <span class="validation" th:if="${#fields.hasErrors('age')}"
+                      th:errors="*{age}">Age error!</span>
+            </div>
+
+            <div class="departmentInput">
+                Department:<input type="text" name="department" th:field="*{department}"/>
+                <br/>
+                <span class="validation" th:if="${#fields.hasErrors('department')}"
+                      th:errors="*{department}">Error!</span>
+            </div>
+            <input type="submit" value="Confirm"/>
+        </form>
+
+    </div>
+</fieldset>
+
+</body>
+</html>

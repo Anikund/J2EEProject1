@@ -46,15 +46,18 @@ public class EmployeeController {
 
         model.addAttribute("employee", e);
         log.info("Get Request to /employee/register");
-        return "EmployeeRegistration";
+//        return "EmployeeRegistration";
+        return "new_template/RegisterEmployees";
     }
+
 
     @PostMapping("/register")
     public String processEmployeeRegistration(@Valid @ModelAttribute("employee") Employee employee,
                                               BindingResult bindingResult,@AuthenticationPrincipal HR hr) {
         if (bindingResult.hasErrors()) {//back to registration form when having errors
             log.info("Error in the form");
-            return "EmployeeRegistration";
+//            return "EmployeeRegistration";
+            return "new_template/RegisterEmployees";
         }
         //if no errors, create employee
         else {
@@ -67,7 +70,8 @@ public class EmployeeController {
             employeeService.addEmployee(employee);
 
             log.info("new employee is added");
-            return "test";
+//            return "test";
+            return "new_template/back";
         }
 
     }
@@ -76,7 +80,8 @@ public class EmployeeController {
     public String showEmployeeManagement(Model model){
         model.addAttribute("allEmployees", employeeService.findAll());
         log.info("Get Request to /employee/manage");
-        return "EmployeeManagement";
+//        return "EmployeeManagement";
+        return "new_template/ManageEmployees";
     }
 
     @GetMapping("/manage/mine")
@@ -86,7 +91,8 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findByConditions(conditions, values);
         model.addAttribute("allEmployees", employees);
         model.addAttribute("selectedId", new String());
-        return "MyEmployeeManagement";
+//        return "MyEmployeeManagement";
+        return "new_template/ManageMyEmployees";
     }
 
     @PostMapping("/manage/mine/delete")
@@ -101,7 +107,8 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findByConditions(conditions, values);
         model.addAttribute("allEmployees", employees);
 
-        return "MyEmployeeManagement";
+//        return "MyEmployeeManagement";
+        return "new_template/ManageMyEmployees";
     }
 
     @PostMapping("/manage/mine/updating")

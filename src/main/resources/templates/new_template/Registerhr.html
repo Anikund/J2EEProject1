@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>myface</title>
+    <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="js/drag.js"></script>
+
+</head>
+<body>
+<div class="drag">
+    <div class="dragtop">
+            <span class="dragclose">
+                <span class="icon iconfont icon-guanbi" style="color: lightgrey"/>
+            </span>
+    </div>
+    <iframe class='dragframe' name="drag" src="/" frameborder="0" scrolling="no"></iframe>
+</div>
+<fieldset>
+    <legend><h2>比对记录</h2></legend>
+    <div style="height: 550px">
+        <form action="/developer/searchface" method="post">
+            <input type="search" placeholder="输入查询内容">
+            <label style="font-size: 14px">关键字：</label>
+            <select name="keyword" >
+                <option value="rid">编号</option>
+                <option value="rtime">操作时间</option>
+                <option value="apid">所属应用编号</option>
+            </select>
+            <input type="submit" value="查询" style="height: 30px;background-color:#ff9b3b;">
+        </form>
+        <table class="pure-table">
+            <thead>
+            <tr>
+                <th width="10%">用户编号</th>
+                <th width="15%">用户名</th>
+                <th width="10%">记录编号</th>
+                <th width="20%">操作时间</th>
+                <th width="10%">应用编号</th>
+                <th width="8%">成功</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for record in recordlist.items %}
+            <tr {% if loop.index % 2 == 0%}class="pure-table-odd"{% endif %}>
+                <td>{{ record.Did }}</td>
+                <td>{{ record.Dname }}</td>
+                <td>{{ record.Rid }}</td>
+                <td>{{ record.Rtime }}</td>
+                <td>{{ record.Apid }}</td>
+                <td>{{ '是' if record.isSuccess==True else '否' }}</td>
+                <td>
+                    <a class="blue dragshow" href="/developer/checkrecord?rid={{ record.Rid }}" target="drag">查看</a>
+                    <a class="green dragshow" href="/developer/updaterecord?rid={{ record.Rid }}" target="drag">修改</a>
+                    <a class="red" id="delete" href="/developer/deleterecord?rid={{ record.Rid }}">删除</a>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div style="text-align: center"><ul class="pagination">
+        <li >
+            <a {% if not recordlist.has_prev %}class="disabled"{% endif %}
+               href="{{url_for('Developer.MyFace')}}?page={{ recordlist.prev_num}} ">«</a>
+        </li>
+        {% for page_num in range(1,recordlist.pages + 1) %}
+        <li>
+            <a href="{{url_for('Developer.MyFace')}}?page={{ page_num }}"
+               {% if recordlist. page==page_num %} class="active"{% endif %}>{{ page_num }}</a>
+        </li>
+        {% endfor %}
+        <li >
+            <a {% if not recordlist.has_next %}class="disabled"{% endif %}
+               href="{{url_for('Developer.MyFace')}}?page={{ recordlist.next_num }}">»</a>
+        </li></ul>
+    </div>
+</fieldset>
+<script>
+    $('ul.pagination li a.disabled,#delete').click(function(event){event.preventDefault();});
+    $("#delete").click(function(){
+        let r = confirm("确认要删除此条记录？一旦删除，此记录将无法恢复！");
+        if (r == true){
+            window.location= this.getAttribute("href");
+        };
+    });
+</script>
+</body>
+</html>

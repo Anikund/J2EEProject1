@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.clearfix {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}
+
+.wrapper .head {
+    height: 60px;
+    background-color: #000;
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    line-height: 58px;
+    font-size: 20px;
+}
+
+#logo,#icon{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#logo img,#icon img{
+    vertical-align: middle;
+}
+
+.wrapper .content {
+    height: 100%;
+    width: 100%;
+    padding-top: 60px;
+}
+#user{
+    float:right;
+    margin-right: 40px;
+    cursor: pointer;
+}
+#user:hover .hidden{
+    display: block;
+    transition:all 0.5s ease-out;
+}
+#welcome{
+    font-size: 14px;
+    padding:0 5px
+}
+.wrapper .content .side {
+    width: 180px;
+    height: 100%;
+    background-color: #3e4356;
+    overflow: auto;
+    float: left;
+    color: rgb(209, 151, 151);
+    line-height: 28px;
+}
+
+.wrapper .content .main {
+    background-color: #fff;
+    height: 100%;
+    overflow: auto;
+    padding: 0px;
+    line-height: 28px;
+}
+
+iframe {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+li {
+    text-align: center;
+    list-style-type: none;
+}
+.wrapper .side li{
+    height:57px;
+    line-height: 57px;
+}
+
+
+.wrapper .side li:hover>h3 a,
+.hidden:hover>a,
+.chosen {
+    background-color: #303446;
+    color:#fff;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition:all 0.5s ease-out;
+}
+
+a {
+    color: #bec2cd;
+    text-decoration:none;
+}
+
+.hidden{
+    background-color: black;
+    height: 50px;
+    font-size: 14px;
+    border-bottom:1px solid grey;
+    display: none;
+}
+
+h3{
+    height: 100%;
+}

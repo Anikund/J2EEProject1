@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/font/iconfont.css">
+    <script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <script src="js/drag.js"></script>
+    <style>
+
+        html {
+            font-family: sans-serif;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            padding: 0;
+        }
+
+        body {
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        h2{
+            margin: 5px auto;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        select{
+            height: 30px;
+        }
+
+        label{
+            margin-left: 5px;
+        }
+
+        td,th {
+            padding: 0;
+            height: 30px;
+        }
+
+        input[type='search'] {
+            margin: 0px 0px 10px 5%;
+            height: 30px;
+            width: 380px;
+        }
+
+        .pure-table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            empty-cells: show;
+            border: 1px solid #cbcbcb;
+            width: 90%;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .pure-table caption {
+            color: #000;
+            font: italic 85%/1 arial,sans-serif;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        .pure-table td,.pure-table th {
+            border-left: 1px solid #cbcbcb;
+            border-width: 0 0 0 1px;
+            font-size: inherit;
+            margin: 0;
+            overflow: visible;
+            padding: 4px 4px;
+            text-align: center;
+        }
+
+        .pure-table thead {
+            background-color: #e0e0e0;
+            color: #000;
+            text-align: left;
+            vertical-align: bottom;
+        }
+
+        .pure-table td {
+            background-color: transparent;
+        }
+
+        .pure-table-odd td {
+            background-color: #f2f2f2;
+        }
+        table tbody tr:nth-child(even){
+            background: #f2f2f2;
+        }
+        fieldset{
+            margin: 0 2%;
+        }
+
+        .pure-table td a,
+        input[type='submit'] {
+            display: inline-block;
+            width: 45px;
+            height: 8px;
+            margin: 0 10px;
+            padding:8px;
+            border-color: #357ebd;
+            color: #fff;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid transparent;
+            font-size:14px;
+            line-height: 10px;
+            cursor:pointer;
+        }
+        input[type='submit'] {
+            width:60px;
+        }
+
+        .blue{
+            background-color: #3498db;
+        }
+
+        .green{
+            background-color: #66CC99;
+        }
+
+        .red{
+            background-color: #ff2415;
+        }
+
+        .add {
+            color:white;
+            text-align: center;
+            vertical-align: center;
+            line-height: 30px;
+            float:right;
+            margin-right:5%;
+            height: 30px;
+            width: 80px;
+            cursor: pointer;
+        }
+
+        ul.pagination {
+            display: inline-block;
+            padding: 0;
+            margin: 0 auto;
+        }
+
+        ul.pagination li {display: inline;}
+
+        ul.pagination li a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        ul.pagination li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        ul.pagination li a:hover:not(.active) {background-color: #ddd;}
+
+        ul.pagination li a.disabled{
+            cursor:not-allowed;
+        }
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend><h2>管理HR</h2></legend>
+    <div style="height: 550px">
+        <form action="/" method="post">
+            <input type="search" placeholder="输入查询内容">
+            <label style="font-size: 14px">关键字：</label>
+            <select name="keyword" >
+                <option value="rid">编号</option>
+            </select>
+            <input type="submit" value="查询" style="height: 30px;background-color:#ff9b3b;">
+        </form>
+        <table class="pure-table">
+            <thead>
+            <tr>
+                <th width="20%">Name</th>
+                <th width="20%">Username</th>
+                <th width="30%">Company</th>
+                <th width="30%">Operations</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  th:each="hr:${allhrs}" >
+                <td th:text="${hr.name}">name</td>
+                <td th:text="${hr.username}">tel</td>
+                <td th:text="${hr.company}">department</td>
+                <td>
+
+                    <a class="green dragshow" href="" >修改</a>
+                    <a class="red" id="delete" href="">删除</a>
+                </td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</fieldset>
+
+</body>
+</html>

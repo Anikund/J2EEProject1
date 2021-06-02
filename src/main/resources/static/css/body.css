@@ -1,0 +1,116 @@
+.clearfix:after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.upper{
+    border:2px  rgba(220, 220, 220, 0.86) solid;
+    margin:20px 10px 10px 10px;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.lower div:not(.lower .middle div){
+    border:2px  rgba(220, 220, 220, 0.86) solid;
+    box-shadow: 2px 2px 2px #888888;
+}
+
+.lower .left{
+    margin: 15px 10px 20px 10px;
+    height: 450px;
+    width: 300px;
+    float: left;
+}
+
+.lower .middle{
+    margin: 15px 10px 20px 10px;
+    height: 450px;
+    width: 665px;
+    float: left;
+}
+
+.lower #lineChart{
+    border:0px;
+    box-shadow: 0px 0px 0px white;
+    margin: 0 auto;
+    height: 400px;
+    width: 650px;
+}
+
+.lower .right{
+    margin: 15px 10px;
+    height: 450px;
+    width: 300px;
+    float:right
+}
+
+.upper div{
+    float:left;
+    display: inline-block;
+    width: 250px;
+    height: 90px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    position: relative;
+    border-radius: 10px;
+}
+
+.upper div:not(:last-child){
+    margin-right: 120px;
+}
+
+.upper h4,.lower h4{
+    margin: 5px 0px 10px 10px;
+}
+
+.upper .icon{
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    display: inline-block;
+    font-size:50px;
+    color:white;
+}
+
+.red{
+    background-color: rgba(248, 101, 79, 0.84);
+}
+
+.green{
+    background-color: rgba(102, 204, 153, 0.8);
+}
+
+.blue{
+    background-color: rgba(52, 152, 219, 0.85);
+}
+
+.upper div p{
+    color:white;
+    font-size:16px;
+    margin-top: 10px;
+}
+
+.upper div h4{
+    color:white;
+    font-size:20px;
+    margin-bottom: 5px;
+}
+
+.upper div p strong{
+    color:white;
+    font-weight:bold;
+    font-size:30px;
+    margin:0px 0px 0px 50px;
+}
+
+.right p{
+    width: 95%;
+    margin: 5px auto;
+    text-indent: 2em;
+    line-height: 30px;
+}
+
+.right .info{
+    font-size:13px;
+    coloer: rgba(147, 147, 147, 0.87);
+}

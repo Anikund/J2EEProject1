@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <link rel="stylesheet" href="/css/body.css">
+    <link rel="stylesheet" href="/font/iconfont.css">
+    <script src="/js/echarts.min.js"></script>
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            margin: 0 5px;
+            text-align: center;
+        }
+        table td, table th
+        {
+            border: 1px solid #cad9ea;
+            color: #666;
+            height: 30px;
+        }
+        table thead th
+        {
+            background-color: #CCE8EB;
+            width: 100px;
+        }
+        table tr:nth-child(odd)
+        {
+            background: #fff;
+        }
+        table tr:nth-child(even)
+        {
+            background: #F5FAFA;
+        }
+    </style>
+</head>
+
+<body>
+<div class="upper clearfix">
+    <h4>数据概要</h4>
+    <div class="blue">
+        <h4 style="margin-left: 50px">员工数</h4>
+        <p><strong>500</strong>&nbsp个</p>
+        <span class="icon iconfont icon-yuechi "></span>
+    </div>
+    <div class="green">
+        <h4 style="margin-left: 50px">hr数</h4>
+        <p><strong>10</strong>&nbsp个</p>
+        <span class="icon iconfont icon-shualian "></span>
+    </div>
+    <div class=" red">
+        <h4 style="margin-left: 50px">管理员数</h4>
+        <p><strong>2</strong>&nbsp个</p>
+        <span class="icon iconfont icon-wj-rz"></span>
+    </div>
+</div>
+<div class="lower clearfix">
+    <div class="left">
+<!--        <h4>应用排名</h4>-->
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>排行</th>-->
+<!--                <th>应用名</th>-->
+<!--                <th>人脸数</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            {% for App in app_list %}-->
+<!--            <tr {% if loop.index % 2 == 0%}class="pure-table-odd"{% endif %}>-->
+<!--                <td>{{ loop.index  }}</td>-->
+<!--                <td>{{ App.Apname }}</td>-->
+<!--                <td>{{ App.count }}</td>-->
+<!--            </tr>-->
+<!--            {% endfor %}-->
+            </tbody>
+        </table>
+    </div>
+    <div class="middle">
+        <h4>近期服务请求情况</h4>
+        <div id="lineChart" ></div>
+    </div>
+    <div class="right">
+        <h4>平台公告</h4>
+        <p class="info">版本:1.0.0 &nbsp&nbsp 更新时间:2021.06.02</p>
+    </div>
+</div>
+<script>
+
+    window.onload = function (){
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('lineChart'));
+
+        // 指定图表的配置项和数据
+        option = {
+            xAxis: {
+                type: 'category',
+                data: {{ dates|safe }}
+    },
+        yAxis: {
+            min: (value) => {
+                let num = 10 ** (value.min.toString().length - 2)
+                return Math.floor(value.min / num) * num;
+            },
+                max: (value) => {
+                let num = 10 ** (value.max.toString().length - 2)
+                return Math.ceil(value.max / num) * num;
+            },
+                type: 'value'
+        },
+        series: [{
+            data: {{ values }},
+        type: 'line'
+    }]
+    };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    };
+</script>
+</body>
+</html>

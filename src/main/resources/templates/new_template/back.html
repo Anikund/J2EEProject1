@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>今目标人才管理</title>
+    <script src="js/jquery-3.4.1.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="head">
+        <div id="logo" style="float: left; margin-left: 30px">
+            <img src="img/icon.png" alt="" height="30px"><span>人才管理平台</span>
+        </div>
+        <div id="user">
+            <ul>
+                <li>
+                    <div id="icon">
+                        <img src="img/default_icon.jpg" alt="" height="30px">
+                        <p id="welcome" style="padding-right:20px;display: inline-block;">admin▼</p>
+                    </div>
+                </li>
+                <li class="hidden"><a href="#">个人信息</a></li>
+                <li class="hidden"><a href="{{ url_for('User.alterpassword') }}" target="body">修改密码</a></li>
+                <li class="hidden"><a href="/logout">退出</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="content clearfix">
+        <div class="side">
+            <ul>
+                <li style="list-style: none">
+                    <h3><a th:href="@{/employee/manage/mine}" target="body">管理员工</a></h3>
+                </li>
+                <li style="list-style: none">
+                    <h3><a th:href="@{/hr/manage}" target="body">管理hr</a></h3>
+                </li>
+                <li style="list-style: none">
+                    <h3><a th:href="@{/employee/manage}" target="body">浏览员工</a></h3>
+                </li>
+                <li style="list-style: none">
+                    <h3><a th:href="@{/employee/register}" target="body">注册员工</a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <iframe th:src="@{/body}" frameborder="0" name="body" scrolling="no"></iframe>
+        </div>
+    </div>
+</div>
+<script>
+    $('.wrapper .side li').on('click', function () {
+        $('.wrapper .side li a').removeClass('chosen');
+        $('.wrapper .side li:hover a').addClass('chosen');
+    })
+</script>
+</body>
+
+</html>
