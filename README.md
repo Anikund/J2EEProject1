@@ -12,6 +12,7 @@ By Sha:
   * 对雇员的条件查询
   * 实现解雇、雇用等逻辑的功能
   * 用Thymeleaf引擎渲染初步编写HTML页面，实现浏览、管理等基本功能
+  * Corporation Entity added
 - To do:
   * TBD
   
