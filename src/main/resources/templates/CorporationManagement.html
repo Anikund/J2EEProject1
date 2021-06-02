@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+  All corporations are listed below:
+  <table border="1">
+    <tr>
+      <td>Name</td> <td>Address</td> <td>Tel</td>
+    </tr>
+    <tr  th:each="corp:${allCorps}">
+      <td th:text="${corp.name}">name</td>
+      <td th:text="${corp.address}">gender</td>
+      <td th:text="${corp.tel}">tel</td>
+
+
+
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -30,6 +30,15 @@
                                 <input type="submit" value="Experience">
                                 </form>
                             </td></tr>
+                            <tr th:if="${employee.isOnTheJob} == false"><td>
+                                <div class="hire" >
+                                    <form   th:action="@{/employee/hire}"  method="post" th:object="${employee}">
+                                        <input type="hidden" th:value="${employee.id}" th:name="selectedId">
+                                        <input type="submit" value="Hire">
+                                    </form>
+                                </div>
+
+                            </td></tr>
                         </table>
                     </td>
 

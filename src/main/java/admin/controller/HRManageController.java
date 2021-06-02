@@ -2,6 +2,8 @@ package admin.controller;
 
 import admin.dao.domain.Employee;
 import admin.dao.domain.HR;
+import admin.service.CorporationService;
+import admin.service.CorporationServiceImpl;
 import admin.service.EmployeeServiceImpl;
 import admin.service.HRRepositoryUserDetailsService;
 import lombok.extern.slf4j.Slf4j;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -23,12 +27,16 @@ import javax.validation.Valid;
 public class HRManageController {
 
     private HRRepositoryUserDetailsService hrservice;
-
+    private CorporationService corporationService;
     @Autowired
     public void setHrservice(HRRepositoryUserDetailsService hrservice) {
         this.hrservice = hrservice;
     }
 
+    @Autowired
+    public void setCorporationService(CorporationServiceImpl service){
+        this.corporationService = service;
+    }
     @GetMapping("/delete")
     public String deletehr(@Valid @ModelAttribute("hr") HR hr){
         hrservice.delHR(hr);
@@ -49,6 +57,8 @@ public class HRManageController {
         HR hr = new HR();
         hr.setPassword("1111");
         model.addAttribute("hr", hr);
+        List<String> allCorps = corporationService.getAllCorporationName();
+        model.addAttribute("allCorps", allCorps);
         log.info("Get Request to /hr/register");
         return "HRRegistration";
     }

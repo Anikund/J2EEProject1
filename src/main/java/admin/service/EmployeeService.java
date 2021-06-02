@@ -1,6 +1,7 @@
 package admin.service;
 
 import admin.dao.domain.Employee;
+import admin.dao.domain.HR;
 import admin.dao.repo.EmployeeRepository;
 import lombok.Data;
 
@@ -45,7 +46,7 @@ public interface EmployeeService {
     List<Employee> findByConditions(String[] conditions, String[] values);
 
     Boolean addEmployee(Employee employee);
-
+    Boolean hireEmployee(Employee employee, HR hr);
     /**
      * This should just change the isOnTheJob state and
      * nullify the currentCompany field
