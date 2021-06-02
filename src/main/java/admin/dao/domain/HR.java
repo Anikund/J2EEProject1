@@ -8,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -25,6 +26,8 @@ public class HR implements UserDetails {
     @Column(nullable = false, unique = true)
     private String username;
 
+    @NotNull
+    private String company;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities(){
@@ -49,5 +52,6 @@ public class HR implements UserDetails {
     public boolean isEnabled(){
         return true;
     }
+
 
 }

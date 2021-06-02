@@ -52,7 +52,7 @@ public interface EmployeeService {
      * @param employee
      * @return true/false
      */
-    Boolean delEmployee(Employee employee);
+    Boolean delEmployee(Employee employee, Long hrId, String hrName, String company);
     Boolean updateEmployeeName(Employee employee, String newName);
     Boolean updateEmployeeGender(Employee employee,String newGender);
     Boolean updateEmployeeDepartment(Employee employee, String newDepartment);

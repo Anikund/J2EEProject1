@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>Employee: <span th:text="${employee.name}">Name</span></h2>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Id</td> <td>HR</td> <td>inDate</td> <td>outDate</td>
+                <td>Corporation</td>
+            </tr>
+            <tr  th:each="record:${allWorkRecords}">
+                <td th:text="${record.recordId}">id</td>
+                <td th:text="${record.hrName}">name</td>
+                <td th:text="${record.inDate}">inDate</td>
+                <td th:text="${record.outDate}">outDate</td>
+                <td th:text="${record.company}">Corporation</td>
+
+
+
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

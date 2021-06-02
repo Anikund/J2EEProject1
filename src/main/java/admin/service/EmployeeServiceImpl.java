@@ -1,9 +1,13 @@
 package admin.service;
 
 import admin.dao.domain.Employee;
+import admin.dao.domain.HR;
+import admin.dao.domain.StaffWorkRec;
 import admin.dao.repo.EmployeeRepository;
+import admin.dao.repo.StaffWorkRecRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -13,9 +17,14 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
     //auto injection
     private EmployeeRepository employeeRepo;
+    private StaffWorkRecRepository staffWorkRecRepo;
     @Autowired
     private void setEmployeeRepository(EmployeeRepository employeeRepo){
         this.employeeRepo = employeeRepo;
+    }
+    @Autowired
+    private void setStaffWorkRec(StaffWorkRecRepository staffWorkRecRepo){
+        this.staffWorkRecRepo = staffWorkRecRepo;
     }
 
     @Override
@@ -104,10 +113,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public Boolean delEmployee(Employee employee) {
+    public Boolean delEmployee(Employee employee, Long hrId, String hrName, String company) {
         employee.setIsOnTheJob(Boolean.FALSE);
         employee.setCurrentCompany(null);
         employeeRepo.save(employee);
+        StaffWorkRec rec = new StaffWorkRec();
+        rec.setEmployeeId(employee.getId());
+        rec.setHrId(hrId);
+        rec.setHrName(hrName);
+        rec.setInDate(employee.getInDate());
+        rec.setOutDate(new java.sql.Date(new java.util.Date().getTime()));
+        rec.setCompany(company);
+        staffWorkRecRepo.save(rec);
         return Boolean.TRUE;
     }
 
