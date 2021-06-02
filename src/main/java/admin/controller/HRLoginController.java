@@ -21,4 +21,6 @@ public class HRLoginController {
         log.info("Process Login");
         return "test";              //login succeeded
     }
+
+
 }
