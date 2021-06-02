@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Success Login!</h1>
-
+    Welcome! <span sec:authentication="name">Name</span>
     <p>
         <a th:href="@{/employee/register}">Register Employees</a>
     </p>
@@ -17,15 +17,21 @@
     </p>
 
     <p>
-        <a th:href="@{/staffworkrec/register}">Register Staffworkrec</a>
+        <a th:href="@{/employee/manage/mine}">Manage My Employees</a>
     </p>
 
-    <p>
-        <a th:href="@{/staffworkrec/manage}">Manage Staffworkrec</a>
-    </p>
 
     <p>
         <a th:href="@{/hr/manage}">Manage hr</a>
+    </p>
+
+
+
+    <br/>
+    <br/>
+    <br/>
+    <p>
+        <a th:href="@{/index}">new main page frame</a>
     </p>
 
     <div>

@@ -10,6 +10,7 @@ import javax.validation.constraints.*;
 
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Data
@@ -45,8 +46,9 @@ public class Employee {
     private String department;
 
     private Boolean isOnTheJob;
-    @NotBlank(message = "Please input the company of this guy!")
     private String currentCompany;
+
+    private Date inDate;
 
     public Long getId() {
         return id;

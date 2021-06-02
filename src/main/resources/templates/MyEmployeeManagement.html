@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <div class="welcome">
+        Welcome <span sec:authentication="name">Name</span>!
+        <br/>
+        Below are employees of your corporation.
+    </div>
+    <div>
+        <table border="1">
+            <tr>
+                <td>Name</td> <td>Gender</td> <td>Tel</td> <td>Age</td>
+                <td>Department</td> <td>On The Job?</td> <td>currentCompany</td>
+                <td>startDate</td><td>Operations</td>
+            </tr>
+            <tr  th:each="employee:${allEmployees}">
+                <td th:text="${employee.name}">name</td>
+                <td th:text="${employee.gender}">gender</td>
+                <td th:text="${employee.tel}">tel</td>
+                <td th:text="${employee.age}">age</td>
+                <td th:text="${employee.department}">department</td>
+                <td th:text="${employee.isOnTheJob}">T/F</td>
+                <td th:text="${employee.currentCompany}">currentCompany</td>
+                <td th:text="${employee.inDate}">Date</td>
+                <td>
+                    <table border="3">
+                        <tr><td>
+                            <form th:action="@{/employee/manage/mine/updating}"  method="post" th:object="${employee}">
+                                <input type="hidden" th:value="${employee.id}" th:name="selectedId">
+                                <input type="submit" value="Update">
+                            </form>
+                        </td></tr>
+                        <tr><td>
+                            <form th:action="@{/employee/manage/mine/delete}"  method="post" th:object="${employee}">
+                                <input type="hidden" th:value="${employee.id}" th:name="selectedId">
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td></tr>
+                        <tr><td>
+                            <form th:action="@{/employee/experience}"  method="post" th:object="${employee}">
+                                <input type="hidden" th:value="${employee.id}" th:name="selectedId">
+                                <input type="submit" value="Experience">
+                            </form>
+                        </td></tr>
+                    </table>
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+</head>
+<body>
+
+</body>
+</html>

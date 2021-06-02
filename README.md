@@ -23,5 +23,8 @@ By Wang:
   * Show all hr
   * register new hr
   * create new role admin & admin mainpage
+  * add static resources : layui & font-awesome …
+  * Beautify login page("hrlogin" changed to "hrlogin2"), main page(index+test2)
 - todo:
   * admin login(together with hr login)
+  * Login failure prompt
