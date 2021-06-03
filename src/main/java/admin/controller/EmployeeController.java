@@ -2,25 +2,18 @@ package admin.controller;
 
 import admin.dao.domain.Employee;
 import admin.dao.domain.HR;
-import admin.dao.domain.StaffWorkRec;
-import admin.service.EmployeeService;
+import admin.dao.domain.Staffworkrec;
 import admin.service.EmployeeServiceImpl;
-import admin.service.StaffWorkRecService;
 import admin.service.StaffWorkRecServicelmpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.security.cert.TrustAnchor;
 import java.util.Date;
 import java.util.List;
 
@@ -143,7 +136,7 @@ public class EmployeeController {
         if(
                 staffWorkRecService.findByEmployeeId((long) Integer.parseInt(selectedId))!=null
         ){
-            List<StaffWorkRec> recs = staffWorkRecService.findByEmployeeId((long) Integer.parseInt(selectedId));
+            List<Staffworkrec> recs = staffWorkRecService.findByEmployeeId((long) Integer.parseInt(selectedId));
             model.addAttribute("allWorkRecords", recs);
         }
 

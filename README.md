@@ -29,6 +29,8 @@ By Wang:
   * create new role admin & admin mainpage
   * add static resources : layui & font-awesome …
   * Beautify login page("hrlogin" changed to "hrlogin2"), main page(index+test2)
+  * add more beans only(except html,controller etc..)
+  * seperate admin & hr main pages
 - todo:
-  * admin login(together with hr login)
+  * admin & hr main page to seperate(after login)
   * Login failure prompt

@@ -2,12 +2,11 @@ package admin.service;
 
 import admin.dao.domain.Employee;
 import admin.dao.domain.HR;
-import admin.dao.domain.StaffWorkRec;
+import admin.dao.domain.Staffworkrec;
 import admin.dao.repo.EmployeeRepository;
 import admin.dao.repo.StaffWorkRecRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -125,7 +124,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setIsOnTheJob(Boolean.FALSE);
         employee.setCurrentCompany(null);
         employeeRepo.save(employee);
-        StaffWorkRec rec = new StaffWorkRec();
+        Staffworkrec rec = new Staffworkrec();
         rec.setEmployeeId(employee.getId());
         rec.setHrId(hrId);
         rec.setHrName(hrName);

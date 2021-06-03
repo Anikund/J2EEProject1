@@ -1,22 +1,22 @@
 package admin.service;
 
-import admin.dao.domain.StaffWorkRec;
+import admin.dao.domain.Staffworkrec;
 
 import java.sql.Date;
 import java.util.List;
 public interface StaffWorkRecService
 {
-    StaffWorkRec findByRecordId(Long id);
-    List<StaffWorkRec> findByEmployeeId(Long employeeid);
-    List<StaffWorkRec> findByHrId(Long hrid);
-    List<StaffWorkRec> findByHrName(String name);
-    List<StaffWorkRec> findByInDate(Date date);
-    List<StaffWorkRec> findByOutDate(Date date);
-    List<StaffWorkRec> findByCompany(String company);
-    List<StaffWorkRec> findAll();
+    Staffworkrec findByRecordId(Long id);
+    List<Staffworkrec> findByEmployeeId(Long employeeid);
+    List<Staffworkrec> findByHrId(Long hrid);
+    List<Staffworkrec> findByHrName(String name);
+    List<Staffworkrec> findByInDate(Date date);
+    List<Staffworkrec> findByOutDate(Date date);
+    List<Staffworkrec> findByCompany(String company);
+    List<Staffworkrec> findAll();
+    List<Staffworkrec> addStaffworkrec(Staffworkrec rec);
 
-
-    Boolean delEmployee(StaffWorkRec staffworkrec);
+    Boolean delEmployee(Staffworkrec staffworkrec);
 
 
 }

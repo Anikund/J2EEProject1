@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 @Data
 @NoArgsConstructor(force = true, access = AccessLevel.PUBLIC)
-public class StaffWorkRec {
+public class Staffworkrec {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long recordId;     //记录编号

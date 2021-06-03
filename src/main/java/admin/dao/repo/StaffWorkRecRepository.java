@@ -1,22 +1,22 @@
 package admin.dao.repo;
 
 
-import admin.dao.domain.StaffWorkRec;
+import admin.dao.domain.Staffworkrec;
 import org.springframework.data.repository.CrudRepository;
 
 import java.sql.Date;
 import java.util.List;
 
-public interface StaffWorkRecRepository extends CrudRepository<StaffWorkRec, Long> {
+public interface StaffWorkRecRepository extends CrudRepository<Staffworkrec, Long> {
 
-    StaffWorkRec getByRecordId(Long id);
-    List<StaffWorkRec> findByEmployeeId(Long employeeId);
-    List<StaffWorkRec> findByHrId(Long hrId);
-    List<StaffWorkRec> findByHrName(String name);
-    List<StaffWorkRec> findByInDate(Date date);
-    List<StaffWorkRec> findByOutDate(Date date);
-    List<StaffWorkRec> findByCompany(String company);
-    List<StaffWorkRec> findAll();
+    Staffworkrec getByRecordId(Long id);
+    List<Staffworkrec> findByEmployeeId(Long employeeId);
+    List<Staffworkrec> findByHrId(Long hrId);
+    List<Staffworkrec> findByHrName(String name);
+    List<Staffworkrec> findByInDate(Date date);
+    List<Staffworkrec> findByOutDate(Date date);
+    List<Staffworkrec> findByCompany(String company);
+    List<Staffworkrec> findAll();
 
 
 }
